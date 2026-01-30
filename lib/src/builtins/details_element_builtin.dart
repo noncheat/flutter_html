@@ -32,6 +32,8 @@ class DetailsElementBuiltIn extends HtmlExtension {
       child: ExpansionTile(
           key: AnchorKey.of(context.parser.key, context.styledElement!),
           expandedAlignment: Alignment.centerLeft,
+          initiallyExpanded:
+              bool.tryParse(context.attributes['open'] ?? '') ?? false,
           title: childList.keys.isNotEmpty &&
                   childList.keys.first.name == "summary"
               ? CssBoxWidget.withInlineSpanChildren(
